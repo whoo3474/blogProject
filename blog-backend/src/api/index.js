@@ -1,9 +1,8 @@
 const Router = require('koa-router');
+const posts = require('./posts');
 
-const apie = new Router();
+const api = new Router();
   
-api.get('/text',(ctx) => {
-  ctx.body = 'text성공';
-});
+api.use('/posts', posts.routes());
 
-module.export = api;
+module.exports = api;
