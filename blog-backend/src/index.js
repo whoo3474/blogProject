@@ -11,6 +11,13 @@ const {
   MONGO_URI: mongoURI
 }=process.env;
 
+mongoose.Promise = global.Promise;
+mongoose.connect(mongoURI).then(() => {
+  console.log('connected to mongodb');
+}).catch((e) => {
+  console.log(e);
+});
+
 const app = new Koa();
 const router = new Router();
 
